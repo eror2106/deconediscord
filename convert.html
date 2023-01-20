@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=i, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #1abc9c;
+    background-position: cover;
+    text-align: center;
+
+  }
+
+  button {
+    padding: 10px;
+    background-color: #3498db;
+    color: aliceblue;
+    border: none;
+  }
+
+  input {
+    padding: 10px;
+  }
+
+  p {
+    font-size: 1.8em;
+  }
+</style>
+
+<body>
+  <div class="">
+    <p>texte a convert</p><input id="text" type="text">
+    <button>submit</button>
+
+    <p>le resultat est : </p>
+    <h1 id="resultat"> </h1>
+  </div>
+
+  <script>
+    var result = "";
+    var btn = document.querySelector('button')
+
+    btn.onclick = function () {
+      var texte = document.getElementById('text').value;
+      for (let i = 0; i < texte.length; i++) {
+
+
+        traiter = "||" + texte[i] + "||";
+        result += traiter;
+
+
+      }
+
+      console.log(result);
+      var html = document.getElementById('resultat').innerHTML = result;
+
+
+    }
+
+
+  </script>
+</body>
+
+</html>
