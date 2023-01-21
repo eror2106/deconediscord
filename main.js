@@ -3,13 +3,13 @@ for (let i = 0; i < checkboxes.length; i++) {
   checkboxes[i].checked = false;
 }
 var result = "";
-var btn = document.querySelector('button')
 var option = "";
+var btn = document.querySelector('button')
 var texte = document.getElementById('text');
-
 const cache = document.querySelector('#cacher');
-
-
+const sauter = document.querySelector('#saut');
+const button = document.querySelector('#copy-button');
+button.style.display='none';
 cache.addEventListener('change', (event) => {
 
   if (event.target.checked) {
@@ -19,7 +19,7 @@ cache.addEventListener('change', (event) => {
     option = '';
   }
 });
-const sauter = document.querySelector('#saut');
+
 
 
 sauter.addEventListener('change', (event) => {
@@ -37,9 +37,8 @@ btn.onclick = function () {
     alert('lol pas d\'optionou champ vide');
   } else {
     var texte = document.getElementById('text').value;
-    var longeur = texte.length;
-    // console.log(texte[0]);
-    // console.log(texte[longeur - 1]);
+
+    
     if(cache.checked&&sauter.checked==true){
       for (let i = 0; i < texte.length; i++) {
       traiter =  "||"+texte[i] + option;
@@ -54,6 +53,17 @@ btn.onclick = function () {
     
     var html = document.getElementById('resultat').innerHTML = result;
     result = "";
-    document.getElementById('text').value = "";
+     button.style.display='block';
+const textToCopy = html;
+
+button.addEventListener("click", function() {
+  navigator.clipboard.writeText(textToCopy).then(function() {
+    alert("Texte copié dans le presse-papiers avec succès!");
+  }, function(err) {
+    console.error("Impossible de copier le texte : ", err);
+  });
+});
+ 
   }
+ 
 }
