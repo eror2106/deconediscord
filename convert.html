@@ -22,20 +22,36 @@
     background-color: #3498db;
     color: aliceblue;
     border: none;
+    margin-top: 5%;
+    margin-left: 35%;
+    width: 30%;
   }
 
   input {
     padding: 10px;
+    width: 90%;
+    margin-left: 5%;
+
+  }
+
+  .text_a_traiter {
+    display: flex;
+    flex-direction: column;
   }
 
   p {
     font-size: 1.8em;
   }
+
+  h1 {
+    background-color: aliceblue;
+  }
 </style>
 
 <body>
-  <div class="">
-    <p>texte a convert</p><input id="text" type="text">
+  <div class="text_a_traiter">
+    <p>texte a convert</p>
+    <input id="text" type="text">
     <button>submit</button>
 
     <p>le resultat est : </p>
