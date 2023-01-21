@@ -26,7 +26,7 @@ sauter.addEventListener('change', (event) => {
 
   if (event.target.checked) {
 
-    option += "<br>";
+    option += "";
   } else {
     option = '';
   }
@@ -41,7 +41,7 @@ btn.onclick = function () {
     
     if(cache.checked&&sauter.checked==true){
       for (let i = 0; i < texte.length; i++) {
-      traiter =  "||"+texte[i] + option;
+      traiter =  "<br>"+option+texte[i] + option;
 
       result += traiter;
     }
@@ -53,9 +53,19 @@ btn.onclick = function () {
     
     var html = document.getElementById('resultat').innerHTML = result;
     result = "";
+    console.log(html);
      button.style.display='block';
-const textToCopy = html;
-
+let html1="";
+let textToCopy ="";
+if( html[0]=="<"){
+ html1 = html.replace(/<[^>]*>/g,"" );
+ 
+ let letters = html1.split("");
+console.log(letters);
+ textToCopy = letters.join("\n")
+;}else{
+  textToCopy=html;
+}
 button.addEventListener("click", function() {
   navigator.clipboard.writeText(textToCopy).then(function() {
     alert("Texte copié dans le presse-papiers avec succès!");
@@ -63,7 +73,6 @@ button.addEventListener("click", function() {
     console.error("Impossible de copier le texte : ", err);
   });
 });
- 
   }
  
 }
