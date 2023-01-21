@@ -55,3 +55,16 @@ p {
 h1 {
   background-color: aliceblue;
 }
+
+@media screen and (max-width: 598px) {
+  input {
+    width: 100%;
+    margin-left: 0%;
+
+  }
+
+  #choix {
+    margin-left: 13%;
+  }
+
+}
