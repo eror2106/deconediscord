@@ -41,7 +41,7 @@ btn.onclick = function () {
     // console.log(texte[0]);
     // console.log(texte[longeur - 1]);
     if(cache.checked&&sauter.checked==true){
-       for (let i = 0; i < texte.length; i++) {
+      for (let i = 0; i < texte.length; i++) {
       traiter =  "||"+texte[i] + option;
 
       result += traiter;
