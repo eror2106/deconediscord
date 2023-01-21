@@ -14,7 +14,20 @@
   <div class="text_a_traiter">
     <p>texte a convert</p>
     <input id="text" type="text">
+    <div id="choix">
+      <div class="check"><input type="checkbox" name="" id="cacher">
+
+        <p>cacher lettre a lettre</p>
+      </div>
+      <!-- <div class="check"> <input type="checkbox" name="" id="barer">
+        <p>barer letre a letre </p>
+      </div> -->
+
+
+    </div>
+
     <button>submit</button>
+
 
     <p>le resultat est : </p>
     <h1 id="resultat"> </h1>
@@ -23,26 +36,56 @@
   <script>
     var result = "";
     var btn = document.querySelector('button')
+    var option = "";
+    var texte = document.getElementById('text');
+    const checkbox = document.querySelector('input[type="checkbox"]');
+    checkbox.checked = false;
+    const cache = document.querySelector('#cacher');
+
+
+    cache.addEventListener('change', (event) => {
+
+      if (event.target.checked) {
+        option = '';
+        option += '||';
+      } else {
+        option = '';
+      }
+    });
+    const bare = document.querySelector('#barer');
+
+
+    // bare.addEventListener('change', (event) => {
+
+    //   if (event.target.checked) {
+    //     option = '';
+    //     option += '~~';
+    //   } else {
+    //     option = '';
+    //   }
+    // });
 
     btn.onclick = function () {
-      var texte = document.getElementById('text').value;
-      for (let i = 0; i < texte.length; i++) {
+      if (option == '' || document.getElementById('text').value == "") {
+        alert('lol pas d\'optionou champ vide');
+      } else {
+        var texte = document.getElementById('text').value;
+        var longeur = texte.length;
+        // console.log(texte[0]);
+        // console.log(texte[longeur - 1]);
+        for (let i = 0; i < texte.length; i++) {
+          traiter = option + texte[i] + option;
 
-
-        traiter = "||" + texte[i] + "||";
-        result += traiter;
-
-
+          result += traiter;
+        }
+        var html = document.getElementById('resultat').innerHTML = result;
+        result = "";
+        document.getElementById('text').value = "";
       }
-
-      console.log(result);
-      var html = document.getElementById('resultat').innerHTML = result;
-
-
     }
 
-
   </script>
+
 </body>
 
 </html>
