@@ -54,56 +54,48 @@ btn.onclick = function () {
     
     var html = document.getElementById('resultat').innerHTML = result;
     result = "";
-    console.log(html);
     button.style.display='block';
-let html1="";
-let textToCopy ="";
-if( html[0]=="<"){
- html1 = html.replace(/<[^>]*>/g,"" );
- 
- let letters = html1.split("");
-console.log(letters);
- textToCopy = letters.join("\n")
-;}else if(html[0]==" "){
-  console.log('test');
-  html1 = html.replace(/<[^>]*>/g ,"" );
-  console.log("filtrer"+html1);
-  let nb=0;
-  letpoubelle="";
-  let tour=0;
-  let letters="";
-  for (let k = 0; k < html1.length; k++) {
-    
-      if (nb<5) {
-        if (html1[k]==" ") {
-          letters=html1[k].replace(" " ,"" )
-        } else {
-          
-        
-        
-        letters+=html1[k];
-        nb++}
-      }else if(nb=6){
-        letters+=html1[k]+"\n";
-        nb=0;
-      }
-      
-    
-    
-  }
-  console.log(letters);
-  textToCopy=letters;
 
-}else{
-  textToCopy=html;
-}
-button.addEventListener("click", function() {
-  navigator.clipboard.writeText(textToCopy).then(function() {
-    alert("Texte copié dans le presse-papiers avec succès!");
-  }, function(err) {
-    console.error("Impossible de copier le texte : ", err);
-  });
-});
-  }
+    let html1="";
+    let textToCopy ="";
+    html1 = html.replace(/<[^>]*>/g ,"" );
+    //permier cas
+    if( html[0]=="<"){
+    let letters = html1.split("");
+  
+    textToCopy = letters.join("\n")
+    ;}
+    //deuxieme cas
+    else if(html[0]==" "){
+      
+      let nb=0;
+      let letters="";
+      for (let k = 0; k < html1.length; k++) {
+        
+          if (nb<5) {
+            if (html1[k]==" ") {
+              letters=html1[k].replace(" " ,"" )
+            } else {
+            letters+=html1[k];
+            nb++}
+          }else if(nb=6){
+            letters+=html1[k]+"\n";
+            nb=0;
+          }
+      }
+      textToCopy=letters;
+    }
+    //troisieme cas 
+    else{
+      textToCopy=html;
+    }
+    button.addEventListener("click", function() {
+      navigator.clipboard.writeText(textToCopy).then(function() {
+        alert("Texte copié dans le presse-papiers avec succès!");
+      }, function(err) {
+        console.error("Impossible de copier le texte : ", err);
+      });
+    });
+      }
  
 }
