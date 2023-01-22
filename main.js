@@ -26,7 +26,7 @@ sauter.addEventListener('change', (event) => {
 
   if (event.target.checked) {
 
-    option += "";
+    option += "<br>";
   } else {
     option = '';
   }
@@ -41,7 +41,8 @@ btn.onclick = function () {
     
     if(cache.checked&&sauter.checked==true){
       for (let i = 0; i < texte.length; i++) {
-      traiter =  "<br>"+option+texte[i] + option;
+        option="";
+      traiter = " "+"||"+texte[i] +"||"+ "<br>";
 
       result += traiter;
     }
@@ -54,7 +55,7 @@ btn.onclick = function () {
     var html = document.getElementById('resultat').innerHTML = result;
     result = "";
     console.log(html);
-     button.style.display='block';
+    button.style.display='block';
 let html1="";
 let textToCopy ="";
 if( html[0]=="<"){
@@ -63,7 +64,37 @@ if( html[0]=="<"){
  let letters = html1.split("");
 console.log(letters);
  textToCopy = letters.join("\n")
-;}else{
+;}else if(html[0]==" "){
+  console.log('test');
+  html1 = html.replace(/<[^>]*>/g ,"" );
+  console.log("filtrer"+html1);
+  let nb=0;
+  letpoubelle="";
+  let tour=0;
+  let letters="";
+  for (let k = 0; k < html1.length; k++) {
+    
+      if (nb<5) {
+        if (html1[k]==" ") {
+          letters=html1[k].replace(" " ,"" )
+        } else {
+          
+        
+        
+        letters+=html1[k];
+        nb++}
+      }else if(nb=6){
+        letters+=html1[k]+"\n";
+        nb=0;
+      }
+      
+    
+    
+  }
+  console.log(letters);
+  textToCopy=letters;
+
+}else{
   textToCopy=html;
 }
 button.addEventListener("click", function() {
