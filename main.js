@@ -1,7 +1,10 @@
+
+document.getElementById("text").value="";
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 for (let i = 0; i < checkboxes.length; i++) {
   checkboxes[i].checked = false;
 }
+
 var result = "";
 var option = "";
 var btn = document.querySelector('button')
@@ -75,6 +78,7 @@ btn.onclick = function () {
           if (nb<5) {
             if (html1[k]==" ") {
               letters=html1[k].replace(" " ,"" )
+              
             } else {
             letters+=html1[k];
             nb++}
@@ -97,5 +101,8 @@ btn.onclick = function () {
       });
     });
       }
- 
+ for (let i = 0; i < checkboxes.length; i++) {
+  checkboxes[i].checked = false;
+}
+document.getElementById("text").value="";
 }
