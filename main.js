@@ -95,7 +95,7 @@ btn.onclick = function () {
     }
     button.addEventListener("click", function() {
       navigator.clipboard.writeText(textToCopy).then(function() {
-         alert("Texte copié dans le presse-papiers avec succès!");
+        alert("Texte copié dans le presse-papiers avec succès!");
       }, function(err) {
         console.error("Impossible de copier le texte : ", err);
       });
