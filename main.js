@@ -1,4 +1,3 @@
-
 document.getElementById("text").value="";
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 for (let i = 0; i < checkboxes.length; i++) {
@@ -95,15 +94,15 @@ btn.onclick = function () {
     }
     button.addEventListener("click", function() {
       navigator.clipboard.writeText(textToCopy).then(function() {
-         alert("Texte copié dans le presse-papiers avec succès!");
+        alert("Texte copié dans le presse-papiers avec succès!");
       }, function(err) {
         console.error("Impossible de copier le texte : ", err);
       });
     });
-      }
- for (let i = 0; i < checkboxes.length; i++) {
-  checkboxes[i].checked = false;
-}
+  }
+    for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].checked = false;
+  }
 document.getElementById("text").value="";
 option="";
 }
