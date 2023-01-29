@@ -108,4 +108,5 @@ btn.onclick = function () {
   checkboxes[i].checked = false;
 }
 document.getElementById("text").value="";
+option="";
 }
