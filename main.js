@@ -86,8 +86,10 @@ btn.onclick = function () {
             letters+=html1[k]+"\n";
             nb=0;
           }
+        //test
       }
       textToCopy=letters;
+      console.log(letters);
     }
     //troisieme cas 
     else{
@@ -95,6 +97,7 @@ btn.onclick = function () {
     }
     button.addEventListener("click", function() {
       navigator.clipboard.writeText(textToCopy).then(function() {
+        console.log(textToCopy);
         alert("Texte copié dans le presse-papiers avec succès!");
       }, function(err) {
         console.error("Impossible de copier le texte : ", err);
