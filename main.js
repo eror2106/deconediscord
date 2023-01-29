@@ -85,7 +85,7 @@ btn.onclick = function () {
             letters+=html1[k]+"\n";
             nb=0;
           }
-        //sdpidssdihsdp
+        //sdpidssdihsdp---------------
       }
       textToCopy=letters;
       console.log(letters);
